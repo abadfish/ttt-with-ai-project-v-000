@@ -1,14 +1,12 @@
-require 'pry'
-
 class Board
   attr_accessor :cells
 
   def initialize
-    reset!
+    self.reset!
   end
 
   def reset!
-    @cells = Array.new(9, " ")
+    self.cells = Array.new(9," ")
   end
 
   def display
@@ -19,29 +17,27 @@ class Board
     puts " #{cells[6]} | #{cells[7]} | #{cells[8]} "
   end
 
-  def position(input)
-    cells[input.to_i-1]
+  def position(cell)
+    self.cells[cell.to_i-1]
   end
 
   def full?
-    cells.all? {|cell| cell != " "}
+    cells.all? { |cell| cell == "X" || cell == "O"}
   end
 
-  def turn_count 
-    cells.count {|cell| cell != " "}
+  def turn_count
+    cells.count { |cell| cell == "X" || cell == "O" }
   end
 
-  def taken?(input)
-    self.position(input) != " " 
-  end
- 
-  def valid_move?(input)
-    !self.taken?(input) && input.to_i.between?(1, 9) 
-  end
-    
-  def update(input, player)
-    cells[input.to_i-1] = player.token
+  def taken?(cell)
+    self.position(cell) != " "
   end
 
+  def valid_move?(move)
+    !self.taken?(move) && move.to_i.between?(1,9)
+  end
+
+  def update(cell, player)
+    self.cells[cell.to_i-1] = player.token
+  end
 end
-
