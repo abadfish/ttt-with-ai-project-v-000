@@ -6,7 +6,7 @@ class TicTacToeCLI
     puts "Welcome to Tic Tac Toe"
     puts "How many players?"
     puts ""
-    puts "0. Computer vs Itself"
+    puts "0. Computer vs itself"
     puts "1. One Player vs Computer"
     puts "2. Two players"
 
@@ -57,7 +57,7 @@ class TicTacToeCLI
       when "y".downcase
         self.call
       when "n".downcase
-        puts "So Long and Thanks for All the Fish!"
+        puts "\"A strange game. The only winning move is not to play. How about a nice game of chess?!\""
       when "exit"
         exit
       else
